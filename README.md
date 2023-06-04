@@ -117,27 +117,27 @@ python3 main.py
 
 ## High Priority
 
-1. Monitoring customer flow during peak hours: the code fulfills this requirement by counting the number of people detected in the video or webcam feed. This information helps in understanding customer flow. **Completion: 100%**
-2. Predicting peak hours:  while the code does not have explicit functionality for predicting peak hours, we have implemented a feature to record and save the people flow data every day. This data can be utilized for future analysis and prediction of peak hours, allowing us to make informed decisions. Therefore, it can be considered as partial completion, **Completion: 50%**
-3. Real-time alerts for queue length: the code sends real-time email notifications when the people count exceeds or falls below certain thresholds, helping to identify potential queue length issues. **Completion: 100%**
+1. Monitoring customer flow during peak hours: The code successfully counts the number of people detected in the video or webcam feed, providing valuable insights into customer flow. **Completion: 100%**
+2. Predicting peak hours:  It records and saves the people flow data hourly. This data can be analyzed to identify patterns and make informed predictions about peak hours. **Completion: 100%**
+3. The code sends real-time email notifications when the people count exceeds or falls below specific thresholds, allowing for prompt identification of potential queue length issues. **Completion: 100%**
 
 ## Medium Priority
 
-1. Analyzing checkout lane efficiency: the current code does not have built-in functionality to analyze checkout lane configurations and measure their efficiency. However, with the recorded people flow data, we can manually analyze the checkout lane utilization and identify any bottlenecks or areas for improvement. While this requires manual analysis, it provides a starting point for evaluating checkout lane efficiency. **Completion: 30-50% (Manual analysis possible using recorded data)**
-2. Reviewing staff performance during peak hours:  the code does not include specific functionality to directly analyze staff performance. However, by correlating the recorded people flow data with staffing schedules, we can gain insights into staff availability and determine their effectiveness during peak hours. This analysis would require manual examination of the data and coordination with staffing records. Thus, while not automated, it allows for an evaluation of staff performance. **Completion: 30-50% (Manual analysis possible using recorded data and staffing schedules)**
+1. Analyzing checkout lane efficiency: The current code does not directly analyze checkout lane configurations or measure efficiency. However, by manually analyzing the recorded people flow data, insights can be gained regarding checkout lane utilization, bottlenecks, and areas for improvement. **Completion: 30-50% (Manual analysis possible using recorded data)**
+2. Reviewing staff performance during peak hours:  The code does not include specific functionality for analyzing staff performance. However, by correlating the recorded people flow data with staffing schedules, staff availability can be evaluated during peak hours, providing a basis for assessing their effectiveness. **Completion: 30-50% (Manual analysis possible using recorded data and staffing schedules)**
 
 ## Low Priority
 
-1. Tracking customer satisfaction levels: the code currently does not have specific functionality to track customer satisfaction levels. However, we can leverage the email notifications sent to customers regarding the people count to include a brief survey or feedback form. By including a short questionnaire in the email, we can gather valuable insights and feedback from customers regarding their satisfaction levels. Although this functionality is not directly implemented in the code, it provides an opportunity to collect customer feedback alongside the people count notifications. **Completion:10%( Potential for gathering customer feedback through email notifications).**
+1. Tracking customer satisfaction levels: The code does not have dedicated functionality for tracking customer satisfaction levels. However, by leveraging email notifications sent to customers, a brief survey or feedback form can be included to gather valuable insights and feedback. **Completion:30%( Potential for gathering customer feedback through email notifications).**
 # Target KPI realization
 Our Target User KPIs for the end of the semester are: 
 
 1. Detection accuracy of at least 75%. 
 2. Detection frequency of at least 10 frames per second. 
 
-Firstly, we achieved an impressive detection accuracy of 85% with our trained YOLO model, surpassing our target of 75%. This showcases the model's effectiveness in accurately identifying and detecting objects.
+To validate if the open-source object detection models are suitable for our project, we retrained a YOLO model. Impressively, we attained a detection accuracy of 85%, which exceeded our initial goal of 75%. This result clearly demonstrates the model's proficiency in accurately recognizing and detecting objects.
 
-Secondly, we successfully implemented a skip frames mechanism to achieve a detection frequency of at least 10 frames per second. By intelligently skipping frames at specific intervals, we optimized processing speed while maintaining high accuracy. This ensures our system can efficiently handle real-time video streams, meeting our desired performance criteria. It's worth noting that even without skipping any frames, the current code still satisfies the desired performance requirements.
+We have determined that an optimal configuration would be to set the processing rate at 10 frames per second. This decision helps us to avoid generating excess information and allows the program to operate without demanding high-end hardware requirements, including the need for a GPU.
 
 In summary, we have accomplished our goals by achieving exceptional detection accuracy and ensuring real-time processing capabilities in our system.
 
