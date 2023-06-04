@@ -22,6 +22,13 @@ docker build -t vigilheat .
 docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -it vigilheat
 ```
 
+# User guide
+
+The software is straightforward to operate. Simply launch it and it will start processing images in real-time, collecting and storing the information in a CSV file. The instructions to pause and restart the software will be displayed on the screen.
+
+![GUI](app/gui.jpg)
+(A photo is not shown with the video operating due to the privacy clause. For a better idea please refer to the video attached in the delivery.)
+
 # Project structure
 
 To facilitate the evaluation of the project, here is the structure based on the files:
@@ -39,61 +46,7 @@ To facilitate the evaluation of the project, here is the structure based on the 
 
 ```
 
-# Teaser Images/video
-
-## Free plan
-
-### general people counting
-
-![output_sample_video1](Images/output_sample_video1.gif)
-
-### general people counting and object detections
-
-![output1_sample_video1](Images/output1_sample_video1.gif)
-
-### People counting at a specific area
-
-![output_sample_video2](Images/output_sample_video2.gif)
-
-### Sending notifications in real time
-
-If you use the free version, you will receive real-time alerts when the number of people reaches certain upper and lower limits, and these alerts will be sent via email.
-
-![image-20230604163719426](Images/image-20230604163719426.png)
-
-![image-20230604163821365](Images/image-20230604163821365.png)
-
-### if you consider a free plan
-
-```python
-# Run with a specific input video file
-python3 people_counting_at_cashier.py --input input_video.mp4
-
-# Use a webcam as input:
-python3 people_counting_at_cashier.py --input webcam
-
-# Set the webcam resolution:
-python3 people_counting_at_cashier.py --webcam-resolution 1280 720
-
-# Specify an output video file:
-python3 people_counting_at_cashier.py --input input_video.mp4 --output path/to/output.mp4
-
-# Adjust the number of frames to skip:
-python3 people_counting_at_cashier.py --input input_video.mp4 --output path/to/output.mp4 --skip-frames 5
-
-# People counting and object detections:
-python3 people_counting_at_cashier1.py --input input_video.mp4
-
-# Enable email notifications and provide an email address:
-python3 people_counting_at_cashier.py --input input_video.mp4 --output path/to/output.mp4 --email your-email@example.com
-```
-
-Replace the **YOUR_EMAIL** variable with your email address, and generate an application-specific password from your email service provider (e.g., Google) to authenticate the script without revealing your actual account password. 
-
-```python
-YOUR_EMAIL = "your-email@example.com"
-YOUR_PASSWORD = "your-generated-application-specific-password"
-```
+To know more about the people_counting_at_cashier you can refer to the following file: [people_counting_at_cashier](README_PEOPLE_COINTING.md)
 
 ## Plus version
 
@@ -111,53 +64,6 @@ If you would like a clearer teaser video of the project, you can find a video de
 ```python
 python3 main.py
 ```
-
-
-# MVP scope completion
-
-## High Priority
-
-1. Monitoring customer flow during peak hours: The code successfully counts the number of people detected in the video or webcam feed, providing valuable insights into customer flow. **Completion: 100%**
-2. Predicting peak hours:  It records and saves the people flow data hourly. This data can be analyzed to identify patterns and make informed predictions about peak hours. **Completion: 100%**
-3. The code sends real-time email notifications when the people count exceeds or falls below specific thresholds, allowing for prompt identification of potential queue length issues. **Completion: 100%**
-
-## Medium Priority
-
-1. Analyzing checkout lane efficiency: The current code does not directly analyze checkout lane configurations or measure efficiency. However, by manually analyzing the recorded people flow data, insights can be gained regarding checkout lane utilization, bottlenecks, and areas for improvement. **Completion: 30-50% (Manual analysis possible using recorded data)**
-2. Reviewing staff performance during peak hours:  The code does not include specific functionality for analyzing staff performance. However, by correlating the recorded people flow data with staffing schedules, staff availability can be evaluated during peak hours, providing a basis for assessing their effectiveness. **Completion: 30-50% (Manual analysis possible using recorded data and staffing schedules)**
-
-## Low Priority
-
-1. Tracking customer satisfaction levels: The code does not have dedicated functionality for tracking customer satisfaction levels. However, by leveraging email notifications sent to customers, a brief survey or feedback form can be included to gather valuable insights and feedback. **Completion:30%( Potential for gathering customer feedback through email notifications).**
-# Target KPI realization
-Our Target User KPIs for the end of the semester are: 
-
-1. Detection accuracy of at least 75%. 
-2. Detection frequency of at least 10 frames per second. 
-
-To validate if the open-source object detection models are suitable for our project, we retrained a YOLO model. Impressively, we attained a detection accuracy of 85%, which exceeded our initial goal of 75%. This result clearly demonstrates the model's proficiency in accurately recognizing and detecting objects.
-
-We have determined that an optimal configuration would be to set the processing rate at 10 frames per second. This decision helps us to avoid generating excess information and allows the program to operate without demanding high-end hardware requirements, including the need for a GPU.
-
-In summary, we have accomplished our goals by achieving exceptional detection accuracy and ensuring real-time processing capabilities in our system.
-
-# A screenshot for the commits
-
-![image-20230604170435698](Images/image-20230604170435698.png)
-
-# For other assignments
-
-**Team is Ready for Action (PDF of idea submitted)**: Jiaojiao took the initiative to draft the entire PDF document outlining our project idea. The other team members provided some suggestions, and made minor modifications.
-
-**Market, Users & KPIs**: Jiaojiao initially drafted the PDF document for this section, and the other team member, Arriagada Silva Sebastián Ignacio, made significant revisions to it.
-
-**User Interviews & Stories**: The main responsibility for this task was undertaken by Rúzsa Ákos, including conducting user interviews and writing the corresponding documentation.
-
-**MVP User Stories**: Arriagada Silva Sebastián Ignacio took the lead in drafting the initial PDF document for this section, and Jiaojiao subsequently made significant additions and modifications.
-
-**Retrospective**: Jiaojiao doesn't know or remember this one.
-
-**The code**: see the contribution.
 
 # reference
 
