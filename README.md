@@ -1,47 +1,33 @@
-
-
 # Setup
 
-Clone the project: Use a Git tool to clone the project code to your local machine. Execute the following command in the command line:
+The setup of the software on the client's machines is handled as part of the service. Nevertheless, the steps involved are as follows:
+
+1. Clone the project repository to your local machine.
 
 ```bash
 git clone https://github.com/JIAOJIAOMEI/VigilHeat-project.git
 ```
-Navigate to the project directory: Use the `cd` command to navigate into the cloned project's directory:
+2. Navigate to the project directory.
 
 ```bash
-cd VigilHeat-project/source code
+cd VigilHeat-project/
 ```
 
-Create and activate a virtual environment: It's generally a good practice to create a virtual environment to isolate the project's dependencies. In the command line, execute the following commands to create and activate a virtual environment:
-
-On Windows:
+3. Execute the Docker image. This step is automated by the service to create a shortcut, enabling the client to initiate the software with a simple double-click.
 
 ```bash
-python -m venv myenv  # Create a virtual environment named'myenv'
-myenv\Scripts\activate   # Activate the virtual environment
-```
-
-On macOS/Linux:
-
-```bash
-python3 -m venv myenv # Create a virtual environment named 'myenv'
-source myenv/bin/activate  # Activate the virtual environment
-```
-
-Replace `myenv` with the desired name for your virtual environment. Once activated, your command line prompt will be prefixed with the name of the virtual environment.
-
-Install dependencies: Check if the project has a `requirements.txt` file listing the required dependencies. If it does, run the following command to install those dependencies:
-
-```python
-pip install -r requirements.txt
+xhost +
+export DISPLAY=:1
+docker build -t vigilheat .
+docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -it vigilheat
 ```
 
 # Project structure
 
-Here is the project structure based on the provided files:
+To facilitate the evaluation of the project, here is the structure based on the files:
 
 ```bash
+- Dockerfile: A file containing the instructions for building the Docker image.
 - main.py: The main script responsible for running the people counting system.
 - stream_handler.py: A module that handles video streaming and frame processing.
 - heatmap_generator.py: A module that generates a heatmap based on the detected people.
@@ -50,8 +36,6 @@ Here is the project structure based on the provided files:
 - requirements.txt: A file listing the required dependencies for the project.
 - people_counting_at_cashier.py: A script that demonstrates the people counting system at a cashier location.
 - yolov8l.pt: A pre-trained YOLOv8 model's weight file for object detection.
-
-Please note that this structure assumes all files are present in the same directory. 
 
 ```
 
